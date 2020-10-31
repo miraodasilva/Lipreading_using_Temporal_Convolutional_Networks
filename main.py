@@ -80,8 +80,10 @@ def evaluate(model, dset_loader):
     return
 
 
-def get_model():
-    args_loaded = load_json( args.config_path)
+def get_model(config_path):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    full_config_path = os.path.join(dir_path, config_path)
+    args_loaded = load_json(full_config_path)
     args.backbone_type = args_loaded['backbone_type']
     args.width_mult = args_loaded['width_mult']
     args.relu_type = args_loaded['relu_type']

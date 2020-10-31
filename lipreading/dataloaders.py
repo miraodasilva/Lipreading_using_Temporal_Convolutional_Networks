@@ -8,7 +8,7 @@ def get_preprocessing_pipelines():
     # -- preprocess for the video stream
     preprocessing = {}
     # -- LRW config
-    crop_size = (88, 88)
+    crop_size = (112, 112)
     (mean, std) = (0.421, 0.165)
     preprocessing['train'] = Compose([
                                 Normalize( 0.0,255.0 ),
