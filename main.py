@@ -14,9 +14,9 @@ from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 
-from lipreading.utils import load_json, save2npz
-from lipreading.model import Lipreading
-from lipreading.dataloaders import get_data_loaders, get_preprocessing_pipelines
+from lipreading_tcn.lipreading.utils import load_json, save2npz
+from lipreading_tcn.lipreading.model import Lipreading
+from lipreading_tcn.lipreading.dataloaders import get_data_loaders, get_preprocessing_pipelines
 
 
 def load_args(default_config=None):

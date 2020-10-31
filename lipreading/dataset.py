@@ -4,7 +4,7 @@ import torch
 import random
 import numpy as np
 import sys
-from lipreading.utils import read_txt_lines
+from lipreading_tcn.lipreading.utils import read_txt_lines
 
 
 class MyDataset(object):

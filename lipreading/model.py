@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from lipreading.models.resnet import ResNet, BasicBlock
-from lipreading.models.shufflenetv2 import ShuffleNetV2
-from lipreading.models.tcn import MultibranchTemporalConvNet, TemporalConvNet
+from lipreading_tcn.lipreading.models.resnet import ResNet, BasicBlock
+from lipreading_tcn.lipreading.models.shufflenetv2 import ShuffleNetV2
+from lipreading_tcn.lipreading.models.tcn import MultibranchTemporalConvNet, TemporalConvNet
 
 
 # -- auxiliary functions
