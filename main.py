@@ -52,10 +52,6 @@ def load_args(default_config=None):
     args = parser.parse_args()
     return args
 
-
-args = load_args()
-
-
 def extract_feats(model):
     """
     :rtype: FloatTensor
@@ -120,4 +116,5 @@ def main():
     evaluate(model, dset_loaders['test'])
 
 if __name__ == '__main__':
+    args = load_args()
     main()
