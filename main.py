@@ -98,13 +98,13 @@ def get_model(config_path,num_classes=500,extract_feats=False):
                        extract_feats=extract_feats).cuda()
 
 
-def main():
+def main(args):
     assert args.config_path.endswith('.json') and os.path.isfile(args.config_path), \
         "'.json' config path does not exist. Path input: {}".format(args.config_path)
     assert args.model_path.endswith('.tar') and os.path.isfile(args.model_path), \
         "'.tar' model path does not exist. Path input: {}".format(args.model_path)
 
-    model = get_model()
+    model = get_model(num_classes=args.num_classes,extract_feats=args.extract_feats)
 
     model.load_state_dict( torch.load(args.model_path)["model_state_dict"], strict=True)
 
@@ -117,4 +117,4 @@ def main():
 
 if __name__ == '__main__':
     args = load_args()
-    main()
+    main(args)
