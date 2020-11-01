@@ -76,13 +76,13 @@ def evaluate(model, dset_loader):
     return
 
 
-def get_model(config_path):
+def get_model(config_path,num_classes=500,extract_feats=False):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     full_config_path = os.path.join(dir_path, config_path)
     args_loaded = load_json(full_config_path)
-    args.backbone_type = args_loaded['backbone_type']
-    args.width_mult = args_loaded['width_mult']
-    args.relu_type = args_loaded['relu_type']
+    backbone_type = args_loaded['backbone_type']
+    width_mult = args_loaded['width_mult']
+    relu_type = args_loaded['relu_type']
     tcn_options = { 'num_layers': args_loaded['tcn_num_layers'],
                     'kernel_size': args_loaded['tcn_kernel_size'],
                     'dropout': args_loaded['tcn_dropout'],
@@ -90,12 +90,12 @@ def get_model(config_path):
                     'width_mult': args_loaded['tcn_width_mult'],
                   }
 
-    return Lipreading( num_classes=args.num_classes,
+    return Lipreading( num_classes=num_classes,
                        tcn_options=tcn_options,
-                       backbone_type=args.backbone_type,
-                       relu_type=args.relu_type,
-                       width_mult=args.width_mult,
-                       extract_feats=args.extract_feats).cuda()
+                       backbone_type=backbone_type,
+                       relu_type=relu_type,
+                       width_mult=width_mult,
+                       extract_feats=extract_feats).cuda()
 
 
 def main():
